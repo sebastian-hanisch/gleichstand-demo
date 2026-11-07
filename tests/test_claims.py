@@ -80,7 +80,7 @@ def test_chain_claims(chain):
     assert [chain[k]["unique"] for k in (3, 9, 99, 999)] == [[0, 1, 1, 12, 12], [1, 10, 13, 20, 20], [4, 18, 20, 20, 20], [5, 20, 20, 20, 20]]
     assert [ev.de(chain[k]["mean"][0]) for k in (3, 9, 99, 999)] == ["533,5", "17,9", "8,1", "5,7"]
     for text in ("K = 3: **0 / 1 / 1 / 12 / 12**", "K = 9: **1 / 10 / 13 / 20 / 20**", "K = 99: **4 / 18 / 20 / 20 / 20**", "K = 999: **5 / 20 / 20 / 20 / 20**",
-                 "mittlere Optimalmenge nach dem Maximum **533,5 / 17,9 / 8,1 / 5,7**", "nur in **10** von 20 Instanzen eindeutig, und erst mit C-Summe und Leximax in allen **20**"):
+                 "mittlere Optimalmenge nach dem Maximum **533,5 / 17,9 / 8,1 / 5,7**", "nur in **10** von 20 Instanzen eindeutig, und erst mit der C-Summe in der Kette in allen **20** (der Leximax ändert hier nichts)"):
         _claim(text)
 
 

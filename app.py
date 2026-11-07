@@ -92,7 +92,7 @@ with st.container(key="kopf"):
 st.markdown(
     """
 **Wann entscheidet das zweite Ziel, und was entscheidet danach?** Dieselbe Aufgabe wie in Stück 1 bis 4: **n Personen** übernehmen **n Aufgaben**, jede Paarung hat drei Belastungen **A**, **B** und **C**.
-Ein **Gleichstand** ist: Mehr als ein Plan hat den kleinsten Wert des Ziels. Das ist kein Randfall. Beim **Maximum** zählt nur ein einziger Eintrag, deshalb gibt es ihn fast immer; bei Summen, sobald die Werte grob sind.
+Ein **Gleichstand** ist: Mehr als ein Plan hat den kleinsten Wert des Ziels. Das ist kein Randfall. Beim **Maximum** zählt nur ein einziger Eintrag; deshalb sind Gleichstände dort häufig (bei n = 8 in 15 bis 20 von 20 Instanzen, bei kleinem n seltener); bei Summen, sobald die Werte grob sind.
 Wer ihn nicht ausdrücklich regelt, lässt etwas anderes entscheiden: die **Nummerierung** der Personen, die Reihenfolge der Eingabe, den **Löser**. Die Demo misst, wie oft und wie viel.
 
 Weiter unten: **🔬 Wie viele Pläne sind gleich gut?**, **🔬 Was die Willkür kostet**, **🔬 Die Kette bis zur Eindeutigkeit**, **🔬 Umnummerieren**, **🔬 Die Löser**, **🔬 Wie oft und wie viel?**, **🚧 Wo die Annahmen enden** und der Expander **📐 Mathematische Formulierung**.
@@ -121,7 +121,7 @@ with st.sidebar:
     n = st.slider("Personen und Aufgaben n", *bounds("n_slider"), key="n_slider",
                   help=f"Bis n = {C.ENUM_MAX} werden alle Pläne aufgezählt (exakt in ganzen Zahlen); bis n = {C.N_MAX} gibt es den Löservergleich.")
     family = st.selectbox("Wertgranularität K der Belastungen", list(range(len(C.FAMILIES))), key="family_select", format_func=lambda i: C.FAMILIES[i],
-                          help="Je gröber die Werte (kleineres K), desto mehr Gleichstände. Reelle Werte haben nur beim Maximum Gleichstände.")
+                          help="Je gröber die Werte (kleineres K), desto mehr Gleichstände. Reelle Werte haben praktisch nur beim Maximum Gleichstände.")
     seed = st.number_input("Zufalls-Seed der Instanz", *bounds("seed_input"), key="seed_input", step=1)
     st.button("🎲 Neue Instanz generieren", width="stretch", on_click=randomize_seed)
 

@@ -229,7 +229,7 @@ def verdict_ties(t: dict) -> tuple[str, str]:
     art = "Das" if t["objective"] == "max" else "Die"
     if t["size"] == 1:
         return "info", f"{art} {name} hat hier **genau einen** besten Plan: kein Gleichstand, keine Regel nötig."
-    extra = " Beim Maximum zählt nur ein einziger Eintrag, deshalb sind Gleichstände dort fast immer da." if t["objective"] == "max" else ""
+    extra = " Beim Maximum zählt nur ein einziger Eintrag; deshalb sind Gleichstände dort häufig (bei n = 8 in 15 bis 20 von 20 Instanzen, bei kleinem n seltener)." if t["objective"] == "max" else ""
     return "warning", f"{art} {name} hat **{t['size']}** gleich gute Pläne (von {t['total']}). Welcher gewählt wird, entscheidet nicht das Ziel.{extra}"
 
 
@@ -275,7 +275,7 @@ def verdict_relabel(rc: dict) -> tuple[str, str]:
     changed = [C.RULE_NAMES[r["rule"]] for r in det if r["changed"]]
     kept = [C.RULE_NAMES[r["rule"]] for r in det if not r["changed"]]
     if not changed:
-        return "info", "Beim Umnummerieren ändert **keine** der festen Regeln die Kennzahlen des gewählten Plans: hier gibt es nichts zu verlieren."
+        return "info", "Bei dieser Umnummerierung ändert **keine** der festen Regeln die Kennzahlen des gewählten Plans; mit anderen Umnummerierungen kann das anders sein."
     first = next(r for r in det if r["changed"])
     return "warning", (f"Dieselbe Instanz, andere Nummern: **{len(changed)} von {len(det)} festen Regeln {'ändert' if len(changed) == 1 else 'ändern'} die Kennzahlen** des gewählten Plans ({', '.join(changed)}), "
                        f"zum Beispiel „{C.RULE_NAMES[first['rule']]}“ von ({values_text(first['before'])}) auf ({values_text(first['after'])}). "

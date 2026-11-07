@@ -47,5 +47,5 @@ PRESET_HELP = {
     "Die Kette bleibt uneindeutig (ganze Zahlen 1 bis 3)": "Nach Maximum, Summe, Quadratsumme und C bleiben noch drei Pläne mit verschiedenen Kennzahlen: nur die Nummerierung entscheidet.",
     "Umnummerieren ändert das Ergebnis": "Derselbe Sachverhalt mit anderen Nummern: „erster Plan“ wählt andere Kennzahlen, die volle Kette nicht.",
     "Löser wählen verschieden (n = 8)": "Aufzählung, Ungarische Methode und HiGHS wählen drei Pläne mit derselben Summe A, aber Summe B 41, 42 und 31.",
-    "Löser bei n = 12": "Zu groß zum Aufzählen: Ungarische Methode und HiGHS wählen verschiedene Pläne, und das Vertauschen der Zeilen ändert die Wahl.",
+    "Löser bei n = 12": "Zu groß zum Aufzählen: Ungarische Methode und HiGHS wählen verschiedene Pläne, und bei HiGHS ändert das Vertauschen der Zeilen die Wahl.",
 }
